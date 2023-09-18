@@ -293,8 +293,8 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   InkWell(onTap: (){
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>getLocationUser(),));
-                  },child: Image.asset(width:75,"assets/images/img3.png")),
-                  InkWell(child: Image.asset(width:75,"assets/images/img3.png"))
+                  },child: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),onPressed: (){},child: Text("SoS"),)),
+                  InkWell(child: ElevatedButton(style:ElevatedButton.styleFrom(backgroundColor: Colors.green),onPressed: (){},child: Text("Mark Region"),))
                 ],
               ),)
           ],

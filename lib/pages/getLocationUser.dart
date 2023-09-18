@@ -2,6 +2,7 @@ import 'dart:async';
 // import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 
@@ -14,11 +15,13 @@ class getLocationUser extends  StatefulWidget {
 
 class _getLocationUserState extends State<getLocationUser> {
 
+
+  //declaring the required variables
   bool servicestatus = false;
   bool haspermission = false;
   late LocationPermission permission;
   late Position position;
-  String long = "", lat = "";
+  String long = "", lat = "" , alt = "";
   late StreamSubscription<Position> positionStream;
 
   @override
@@ -27,7 +30,7 @@ class _getLocationUserState extends State<getLocationUser> {
     super.initState();
   }
 
-
+// ------------function to on the gpssssssss------------
   checkGps() async {
     servicestatus = await Geolocator.isLocationServiceEnabled();
     if(servicestatus){
@@ -62,13 +65,19 @@ class _getLocationUserState extends State<getLocationUser> {
     });
   }
 
+
+  // -----------fucntion to get the locationnnnnnn-------------
+
+
   getLocation() async {
     position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     print(position.longitude); //Output: 80.24599079
-    print(position.latitude); //Output: 29.6593457
+    print(position.latitude);
+    print(position.altitude);//Output: 29.6593457
 
     long = position.longitude.toString();
     lat = position.latitude.toString();
+    alt = position.altitude.toString();
 
     setState(() {
       //refresh UI
@@ -84,9 +93,12 @@ class _getLocationUserState extends State<getLocationUser> {
         locationSettings: locationSettings).listen((Position position) {
       print(position.longitude); //Output: 80.24599079
       print(position.latitude); //Output: 29.6593457
+      print(position.altitude);
 
       long = position.longitude.toString();
       lat = position.latitude.toString();
+      alt = position.altitude.toString();
+
 
       setState(() {
         //refresh UI on update
@@ -101,7 +113,7 @@ class _getLocationUserState extends State<getLocationUser> {
     return Scaffold(
         appBar: AppBar(
             title: Text("Get GPS Location"),
-            backgroundColor: Colors.redAccent
+            // backgroundColor: Colors.redAccent
         ),
         body: Container(
             alignment: Alignment.center,
@@ -110,10 +122,30 @@ class _getLocationUserState extends State<getLocationUser> {
                 children: [
 
                   Text(servicestatus? "GPS is Enabled": "GPS is disabled."),
-                  Text(haspermission? "GPS is Enabled": "GPS is disabled."),
+                  // Text(haspermission? "GPS is Enabled": "GPS is disabled."),
 
-                  Text("Longitude: $long", style:TextStyle(fontSize: 20)),
-                  Text("Latitude: $lat", style: TextStyle(fontSize: 20),)
+                  SizedBox(height: 20,),
+
+                  Container(
+                    width:300,
+                    child: Column(
+                      children: [
+                        Text("Longitude: $long", style:TextStyle(fontSize:15)),
+                        SizedBox(height: 10),
+                        Text("Latitude: $lat", style: TextStyle(fontSize:15),),
+                        SizedBox(height: 10,),
+                        Text("Altitude: $alt",style:TextStyle(fontSize:15)),
+                      ],
+                    ),
+                  ),
+
+      SizedBox(height: 20,),
+                  ElevatedButton(onPressed: () async{
+                    Uri userSms = Uri.parse('sms:9284674008?body=Latitude:${lat}\nLongitude:${long}\nAltitude:${alt}');
+                    if (await launchUrl(userSms)){
+
+                    }
+                  }, child: Text("Request Help" ))
 
                 ]
             )
