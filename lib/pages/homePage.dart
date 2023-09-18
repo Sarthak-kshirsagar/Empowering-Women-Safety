@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sihwomen1/pages/getLocationUser.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // url_launcher.dart;
@@ -290,7 +291,9 @@ class _HomePageState extends State<HomePage> {
 
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  InkWell(onTap: (){},child: Image.asset(width:75,"assets/images/img3.png")),
+                  InkWell(onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>getLocationUser(),));
+                  },child: Image.asset(width:75,"assets/images/img3.png")),
                   InkWell(child: Image.asset(width:75,"assets/images/img3.png"))
                 ],
               ),)
