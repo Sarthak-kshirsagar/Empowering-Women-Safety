@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sihwomen1/pages/homePage.dart';
+import 'package:sihwomen1/pages/register.dart';
 
 
 class verifyPhoneNumber extends StatefulWidget {
@@ -50,7 +51,8 @@ class _verifyPhoneNumberState extends State<verifyPhoneNumber> {
 
               try{
                 await auth.signInWithCredential(credential);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(phoneNumber:phoneNumberUSer,),));
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Register(),));
               }catch(e){
                 print(e);
               }

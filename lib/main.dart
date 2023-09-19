@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:sihwomen1/pages/getLocationUser.dart';
 import 'package:sihwomen1/pages/homePage.dart';
 // import 'package:flutter/services.dart';
 import 'package:sihwomen1/pages/login.dart';
@@ -72,11 +73,11 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
               SizedBox(height: 10),
 
               SizedBox(
-                height: 200,
+                height:50,
                 child: Column(
                   children: [
                     ElevatedButton(style:ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
+                      backgroundColor: Colors.black,
 
                     ),onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginWithPhoneNumber(),));
@@ -117,9 +118,18 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                   ],
                 ),
               ),
-                ElevatedButton(onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage(),));
-                }, child: Text("Proceed"))
+              ElevatedButton(style:ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,),onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => getLocationUser(),));
+              }, child:Text("NearBy Help")),
+                // ElevatedButton(onPressed: (){
+                //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage(),));
+                // }, child: Text("Proceed")),
+
+              // ElevatedButton(onPressed: (){
+              //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => Register(),));
+              // }, child:Text("Register")),
+
             ],
           )
       ),

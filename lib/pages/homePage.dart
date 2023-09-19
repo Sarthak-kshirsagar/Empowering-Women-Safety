@@ -2,9 +2,14 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sihwomen1/pages/blue.dart';
+import 'package:sihwomen1/pages/closeFriends.dart';
 import 'package:sihwomen1/pages/firstAid.dart';
 import 'package:sihwomen1/pages/getLocationUser.dart';
+import 'package:sihwomen1/pages/hospitals.dart';
 import 'package:sihwomen1/pages/loginInWithPhoneNumber.dart';
+import 'package:sihwomen1/pages/profilePage.dart';
+import 'package:sihwomen1/pages/watchman.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // url_launcher.dart;
@@ -18,8 +23,11 @@ void main(){
 
 
 class HomePage extends StatefulWidget {
-  String? phoneNumber;
-  HomePage({super.key,this.phoneNumber});
+
+
+  // String? phoneNumber;
+
+  HomePage({super.key});
 
 
   @override
@@ -78,8 +86,12 @@ class _HomePageState extends State<HomePage> {
 
 
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.home),title: Text("Home"),),),),
-            InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.people_outline_sharp),title: Text("Close Friends"),),),),
-            InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.edit_sharp),title: Text("Edit Profile"),),),),
+            InkWell(onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => closeFriends(),));
+            },child: Ink(child: ListTile(leading: Icon(Icons.people_outline_sharp),title: Text("Close Friends"),),),),
+            InkWell(onTap: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfilePage(),));
+            },child: Ink(child: ListTile(leading: Icon(Icons.edit_sharp),title: Text("Edit Profile"),),),),
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.settings),title: Text("Settings"),),),),
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.share),title: Text("Share App"),),),),
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.help_center),title: Text("Help"),),),),
@@ -120,7 +132,7 @@ class _HomePageState extends State<HomePage> {
 
                 InkWell(
                   onTap:(){
-                    // Navigator.of(context).push(MaterialPageRoute(builder: (context) => getLocation(),));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Blue(),));
                   },
 
                   child: Ink(
@@ -149,7 +161,9 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 InkWell(
-                  onTap:(){},
+                  onTap:(){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>Watchmen(),));
+                  },
 
                   child: Ink(
                     padding: EdgeInsets.all(0),
@@ -177,7 +191,9 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 InkWell(
-                  onTap:(){},
+                  onTap:(){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>DummyMessage(),));
+                  },
 
                   child: Ink(
                     padding: EdgeInsets.all(0),
@@ -255,7 +271,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image.asset(width:80,"assets/images/img1.jpg"),
-                        Text(textAlign: TextAlign.center,"Police\nPetrol\nTimings",style: TextStyle(fontWeight: FontWeight.bold,fontSize:15),)
+                        Text(textAlign: TextAlign.center,"Police\nStations",style: TextStyle(fontWeight: FontWeight.bold,fontSize:15),)
                       ],
                     ),
                   ),
@@ -264,11 +280,13 @@ class _HomePageState extends State<HomePage> {
 
 
                 InkWell(
-                  onTap:(){},
+                  onTap:(){
+
+                  },
 
                   child: InkWell(
-                    onTap: ()async{
-
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) =>closeFriends(),));
                     },
                     child: Ink(
 
