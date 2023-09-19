@@ -79,46 +79,46 @@ class _RegisterState extends State<Register> with SingleTickerProviderStateMixin
             SingleChildScrollView(
               child: Form(child: Column(
                 children: [
-                  SizedBox(
-
-                    width:350,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "First Name",
-                        hintText: "Enter Your First Name",
-                        prefixIcon: Icon(Icons.drive_file_rename_outline),
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //
+                  //   width:350,
+                  //   child: TextFormField(
+                  //     decoration: InputDecoration(
+                  //       border: OutlineInputBorder(),
+                  //       labelText: "First Name",
+                  //       hintText: "Enter Your First Name",
+                  //       prefixIcon: Icon(Icons.drive_file_rename_outline),
+                  //     ),
+                  //   ),
+                  // ),
                 SizedBox(height:15,),
-                  SizedBox(
-
-                    width:350,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Middle Name",
-                        hintText: "Enter Your Middle Name",
-                        prefixIcon: Icon(Icons.drive_file_rename_outline),
-                      ),
-                    ),
-                  ),
-
-
-                  SizedBox(height:15,),
-                  SizedBox(
-
-                    width:350,
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Last Name",
-                        hintText: "Enter Your Last Name",
-                        prefixIcon: Icon(Icons.drive_file_rename_outline),
-                      ),
-                    ),
-                  ),
+                  // SizedBox(
+                  //
+                  //   width:350,
+                  //   child: TextFormField(
+                  //     decoration: InputDecoration(
+                  //       border: OutlineInputBorder(),
+                  //       labelText: "Middle Name",
+                  //       hintText: "Enter Your Middle Name",
+                  //       prefixIcon: Icon(Icons.drive_file_rename_outline),
+                  //     ),
+                  //   ),
+                  // ),
+                  //
+                  //
+                  // SizedBox(height:15,),
+                  // SizedBox(
+                  //
+                  //   width:350,
+                  //   child: TextFormField(
+                  //     decoration: InputDecoration(
+                  //       border: OutlineInputBorder(),
+                  //       labelText: "Last Name",
+                  //       hintText: "Enter Your Last Name",
+                  //       prefixIcon: Icon(Icons.drive_file_rename_outline),
+                  //     ),
+                  //   ),
+                  // ),
 
 
                   SizedBox(height:15,),

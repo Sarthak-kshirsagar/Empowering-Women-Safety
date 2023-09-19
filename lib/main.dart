@@ -1,12 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:sihwomen1/pages/homePage.dart';
+// import 'package:flutter/services.dart';
 import 'package:sihwomen1/pages/login.dart';
+import 'package:sihwomen1/pages/loginInWithPhoneNumber.dart';
 import 'package:sihwomen1/pages/register.dart';
+
+import 'firebase_options.dart';
 
 // import 'package:geolocator/geolocator.dart';
 
 
-void main(){
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MaterialApp(
     home:Landing(),
   ));
@@ -15,6 +24,7 @@ void main(){
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
+
 
   @override
   State<Landing> createState() => _LandingState();
@@ -69,33 +79,47 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
                       backgroundColor: Colors.green,
 
                     ),onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => Register(),));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginWithPhoneNumber(),));
                     }, child: Text("Register")),
-                    ElevatedButton(style:ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                    ),onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage(),));
-                    }, child: Text("Sign In")),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text.rich(TextSpan(
-                      text: "Forgot Password ?",
-                      // style: ,
-                      children: [
-                        TextSpan(
-                          text: ' Reset Now',
-                          style: TextStyle(color: Colors.blue),
-                          children: [
+                    
+                    
 
-                          ],
-                        ),
-                      ],
-                    ),)
+                    // ================ Initially signIn page was desigined , but now no need ===============================
+
+
+
+                    // ElevatedButton(style:ElevatedButton.styleFrom(
+                    //   backgroundColor: Colors.black,
+                    // ),onPressed: () {
+                    //   Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginPage(),));
+                    // }, child: Text("Sign In")),
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
+                    // Text.rich(TextSpan(
+                    //   text: "Forgot Password ?",
+                    //   // style: ,
+                    //   children: [
+                    //     TextSpan(
+                    //       text: ' Reset Now',
+                    //       style: TextStyle(color: Colors.blue),
+                    //       children: [
+                    //
+                    //       ],
+                    //     ),
+                    //   ],
+                    // ),)
+
+
+                    // ============================================================
+                  
+
                   ],
                 ),
-              )
-
+              ),
+                ElevatedButton(onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage(),));
+                }, child: Text("Proceed"))
             ],
           )
       ),

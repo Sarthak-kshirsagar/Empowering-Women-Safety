@@ -1,5 +1,10 @@
+// import 'dart:js_interop';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sihwomen1/pages/firstAid.dart';
 import 'package:sihwomen1/pages/getLocationUser.dart';
+import 'package:sihwomen1/pages/loginInWithPhoneNumber.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // url_launcher.dart;
@@ -13,7 +18,8 @@ void main(){
 
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  String? phoneNumber;
+  HomePage({super.key,this.phoneNumber});
 
 
   @override
@@ -21,10 +27,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String? _currentUser = "Vaishnavi";
-  String? _currentUSerEmailAddress = "vaishnavi.chopde@pccoepune.org";
+
+  String? phoneNumber = FirebaseAuth.instance.currentUser?.phoneNumber;
+  String? _currentUser = "  ";
+  String? _currentUSerEmailAddress = " ";
   final Uri _url = Uri.parse("https://www.google.com/maps/search/nearby+poilce+stations");
   final Uri _urlCurrent = Uri.parse("https://www.google.com/maps");
+  final auth = FirebaseAuth.instance;
 
 
 
@@ -43,6 +52,12 @@ class _HomePageState extends State<HomePage> {
     HomePage(),
   ];
 
+
+  Future<void> _signOut() async {
+    await FirebaseAuth.instance.signOut().then((value) => Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LoginWithPhoneNumber(),), (route) => false));
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +74,7 @@ class _HomePageState extends State<HomePage> {
 
               color: Colors.orange,
               borderRadius: BorderRadius.all(Radius.circular(15)),
-            ),currentAccountPicture: CircleAvatar(backgroundImage:AssetImage("assets/images/img4.png")),accountName: Text("$_currentUser",style: TextStyle(color: Colors.black,fontSize:20),), accountEmail: Text("$_currentUSerEmailAddress",style: TextStyle(color: Colors.black),)),
+            ),currentAccountPicture: CircleAvatar(backgroundImage:AssetImage("assets/images/img4.png")),accountName: Text("$phoneNumber",style: TextStyle(color: Colors.black,fontSize:20),), accountEmail: Text("$_currentUSerEmailAddress",style: TextStyle(color: Colors.black),)),
 
 
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.home),title: Text("Home"),),),),
@@ -69,7 +84,9 @@ class _HomePageState extends State<HomePage> {
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.share),title: Text("Share App"),),),),
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.help_center),title: Text("Help"),),),),
             InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.feedback_rounded),title: Text("FeedBack"),),),),
-            InkWell(onTap: (){},child: Ink(child: ListTile(leading: Icon(Icons.logout),title: Text("Log Out"),),),),
+            InkWell(onTap: (){
+              _signOut();
+            },child: Ink(child: ListTile(leading: Icon(Icons.logout),title: Text("Log Out"),),),),
 
 
 
@@ -188,7 +205,9 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 InkWell(
-                  onTap:(){},
+                  onTap:(){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>FirstAidHelp()));
+                  },
 
                   child: Ink(
                     padding: EdgeInsets.all(0),
@@ -292,8 +311,10 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkWell(onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>getLocationUser(),));
-                  },child: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),onPressed: (){},child: Text("SoS"),)),
+                    // Navigator.of(context).push(MaterialPageRoute(builder: (context) =>getLocationUser(),));
+                  },child: ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.red),onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>getLocationUser()));
+                  },child: Text("SoS"),)),
                   InkWell(child: ElevatedButton(style:ElevatedButton.styleFrom(backgroundColor: Colors.green),onPressed: (){},child: Text("Mark Region"),))
                 ],
               ),)
