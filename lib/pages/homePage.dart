@@ -430,7 +430,9 @@ class _HomePageState extends State<HomePage> {
                       },
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red),
+                          foregroundColor: Colors.white,
+                            backgroundColor: Colors.red)
+                        ,
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => getLocationUser()));
@@ -440,7 +442,7 @@ class _HomePageState extends State<HomePage> {
                   InkWell(
                       child: ElevatedButton(
                     style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                        ElevatedButton.styleFrom(foregroundColor: Colors.white,backgroundColor: Colors.green),
                     onPressed: () {},
                     child: Text("Mark Region"),
                   ))
@@ -536,6 +538,7 @@ class _currentLocationState extends State<currentLocation> {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.black,
+                          foregroundColor: Colors.white
                         ),
                         onPressed: () {},
                         child: Text("View Map")),
