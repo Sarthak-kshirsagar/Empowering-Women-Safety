@@ -1,0 +1,53 @@
+[33mcommit 700a684066cf34f0183c53d4cd6a8be74488ee42[m[33m ([m[1;36mHEAD -> [m[1;32mfeatures[m[33m, [m[1;31morigin/features[m[33m)[m
+Author: Sarthak kshirsagar <sarthak.ksh.dev@gmail.com>
+Date:   Sun Feb 11 17:15:55 2024 +0530
+
+    changes the ui in main.dart
+
+[33mcommit 4cbdc393d4455b3dcb7a59dc75263364c09ac49b[m[33m ([m[1;32mhomePage[m[33m, [m[1;32mgeneralFeatures[m[33m, [m[1;32mauthenticationSystem[m[33m)[m
+Author: Sarthak kshirsagar <sarthak.ksh.dev@gmail.com>
+Date:   Sun Feb 11 16:59:17 2024 +0530
+
+    Changed the ui of landing page
+
+[33mcommit f8dcf5490ebcb984832651c6f61c783ce9276c2c[m[33m ([m[1;32mmain[m[33m)[m
+Author: Saru2726-dev <sarthak.ksh.dev@gmail.com>
+Date:   Sun Feb 11 16:35:27 2024 +0530
+
+    Initial commit
+
+[33mcommit 95618df93b47f72fb9a7c9d92d1ba5967e7c91fb[m[33m ([m[1;31morigin/devBranch[m[33m)[m
+Author: Sarthak-ksh <sarthak.kshirsagar22@pccoepune.org>
+Date:   Wed Sep 20 03:07:35 2023 +0530
+
+    completed profile page,close friends,etc with backend
+
+[33mcommit edb535da8c4b97c7383722d7969ab6bc3980b3d2[m
+Author: Sarthak-ksh <sarthak.kshirsagar22@pccoepune.org>
+Date:   Tue Sep 19 23:23:33 2023 +0530
+
+    Implemented PhoneNumberAuthentication,app is now able to fetch the imei and required sim details automatically , implememnted first aid section completely , data can be sent to firestore data on button click
+
+[33mcommit 9238e751eeb52ed6881fac0024a29373144cfd14[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Sarthak-ksh <sarthak.kshirsagar22@pccoepune.org>
+Date:   Mon Sep 18 13:25:15 2023 +0530
+
+    Integrated SoS feature
+
+[33mcommit a001eaf9c1c31df524bfb23fe0cf13f78ee24f3e[m
+Author: Sarthak-ksh <sarthak.kshirsagar22@pccoepune.org>
+Date:   Mon Sep 18 12:53:13 2023 +0530
+
+    no changes
+
+[33mcommit d86fadbf0bc4030e9e7c08d3fcc1afac033a978c[m
+Author: Sarthak-ksh <sarthak.kshirsagar22@pccoepune.org>
+Date:   Mon Sep 18 12:08:01 2023 +0530
+
+    first commit
+
+[33mcommit 7ad9692f8ef07c293aa20063046f1a80a8abc554[m
+Author: Sarthak-ksh <sarthak.kshirsagar22@pccoepune.org>
+Date:   Mon Sep 18 12:05:26 2023 +0530
+
+    Initial commit
