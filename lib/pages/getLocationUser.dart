@@ -1,7 +1,10 @@
 import 'dart:async';
 // import 'dart:html';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:sihwomen1/pages/verifyPhoneNumber.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -11,10 +14,53 @@ import 'package:url_launcher/url_launcher.dart';
 class getLocationUser extends  StatefulWidget {
   @override
   State<getLocationUser> createState() => _getLocationUserState();
+
 }
 
 class _getLocationUserState extends State<getLocationUser> {
 
+final FirebaseAuth auth = FirebaseAuth.instance;
+
+
+//
+// void getUSerData(){
+//   //created the object for the user
+//   final user = FirebaseAuth.instance.currentUser;
+//
+//   if (user != null) {
+//     final String? phoneNumber = user.phoneNumber;
+//     // Name, email address, and profile photo URL
+//
+//
+//   }
+//
+// }
+
+
+// =======function to send data in firestore db
+Future<void> addUserData(String? longitude,String? latitude,String? altitude)async{
+User?  user = auth.currentUser;
+
+// ===now if user is logged in then only data will be sent====
+if(user!=null){
+  String? uid=user.uid;
+  String? phoneNumberr = user.phoneNumber;
+  await FirebaseFirestore.instance.collection('User').add({
+    'MobileNumber': phoneNumberr,
+    'Longitude': longitude,
+    'Latitude': latitude,
+    'Altitude': altitude
+  });
+}else{
+  print("Not Signed");
+}
+
+
+
+
+
+
+}
 
   //declaring the required variables
   bool servicestatus = false;
@@ -55,6 +101,7 @@ class _getLocationUserState extends State<getLocationUser> {
         });
 
         getLocation();
+
       }
     }else{
       print("GPS Service is not enabled, turn on GPS location");
@@ -145,7 +192,11 @@ class _getLocationUserState extends State<getLocationUser> {
                     if (await launchUrl(userSms)){
 
                     }
-                  }, child: Text("Request Help" ))
+                  }, child: Text("Request Help" )),
+                  ElevatedButton(onPressed: (){
+                    // getUSerData();
+                    addUserData(long, lat, alt);
+                  }, child: Text("Upload Data"))
 
                 ]
             )

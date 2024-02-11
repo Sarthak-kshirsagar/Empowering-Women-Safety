@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "590022833338",
+    "project_id": "sihwomen1-1",
+    "storage_bucket": "sihwomen1-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590022833338:android:847093e0c14a498fdd7e83",
+        "android_client_info": {
+          "package_name": "com.example.sihwomen1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfM4GAsBdpdGkrxDO6XQUApX1uZDs3TKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
