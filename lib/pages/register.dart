@@ -388,8 +388,8 @@ class _RegisterState extends State<Register> with SingleTickerProviderStateMixin
                   SizedBox(height: 20,),
                   ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor: Colors.black),onPressed: (){
                     addUserData(nameController.text,medicalInfoController.text,adharNumberController.text,EmergencyController.text,_selectedValue);
-                    final snackBarRegistered = SnackBar(content: Text("Registered Successfully"),backgroundColor: Colors.green,action: SnackBarAction(textColor: Colors.black,label: "Dismiss", onPressed: (){}),);
-                    ScaffoldMessenger.of(context).showSnackBar(snackBarRegistered);
+                    final snackBarLogOUt = SnackBar(content: Text("Registered Successfully"),backgroundColor: Colors.green,action: SnackBarAction(textColor: Colors.black,label: "Dismiss", onPressed: (){}),);
+                    ScaffoldMessenger.of(context).showSnackBar(snackBarLogOUt);
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage(),));
                   }, child: Text("Register")),
 
