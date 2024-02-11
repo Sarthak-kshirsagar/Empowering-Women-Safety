@@ -86,6 +86,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
                       backgroundColor: Colors.black,
                     ),
                     onPressed: () {
@@ -125,6 +126,7 @@ class _LandingState extends State<Landing> with SingleTickerProviderStateMixin {
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
                 backgroundColor: Colors.green,
               ),
               onPressed: () {
